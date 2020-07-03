@@ -42,7 +42,7 @@ public class TestController {
      * @return
      */
     @PostMapping("/addUser")
-    public Map addUser( @RequestBody User user){
+    public Map addUser(@Validated(Add.class) @RequestBody User user){
         Map<String,Object> result = new HashMap();
         result.put("data",messageutil.getLocaleMessage("add.ok"));
         return result;
