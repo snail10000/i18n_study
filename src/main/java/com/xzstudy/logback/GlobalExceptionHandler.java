@@ -2,8 +2,6 @@ package com.xzstudy.logback;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.MessageSource;
-import org.springframework.context.support.DefaultMessageSourceResolvable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindException;
@@ -11,7 +9,6 @@ import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
-import javax.servlet.http.HttpServletRequest;
 import javax.validation.ConstraintViolation;
 import javax.validation.ConstraintViolationException;
 import java.util.*;
@@ -45,7 +42,6 @@ public class GlobalExceptionHandler {
         String key = e.getConstraintViolations().iterator().next().getMessage();
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(messageutil.getLocaleMessage(key,null,null));
     }
-
 
     @ExceptionHandler(Exception.class)
     public Map exceptionHandler(Exception e){

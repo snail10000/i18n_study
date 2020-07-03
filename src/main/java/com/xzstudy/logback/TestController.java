@@ -32,7 +32,7 @@ public class TestController {
     public Map registerParams(@NotEmpty(message = "111") String name, @NotEmpty(message = "222") String addr){
         System.out.println(request.getClass());
         Map<String,Object> result = new HashMap();
-        result.put("data",messageutil.getLocaleMessage("111"));
+        result.put("data","ok");
         return result;
     }
 
