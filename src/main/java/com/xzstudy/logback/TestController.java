@@ -36,6 +36,11 @@ public class TestController {
         return result;
     }
 
+    /**
+     * 新增
+     * @param user
+     * @return
+     */
     @PostMapping("/addUser")
     public Map addUser( @RequestBody User user){
         Map<String,Object> result = new HashMap();
@@ -43,6 +48,11 @@ public class TestController {
         return result;
     }
 
+    /**
+     * 修改
+     * @param user
+     * @return
+     */
     @PostMapping("/updateUser")
     public Map updateUser(@Validated(Editor.class) @RequestBody User user){
         Map<String,Object> result = new HashMap();

@@ -8,8 +8,7 @@ import javax.validation.constraints.NotEmpty;
 
 /**
  *
- *
- *
+ *user 实体类型
  */
 @Data
 public class User {
