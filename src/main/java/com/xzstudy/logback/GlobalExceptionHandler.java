@@ -34,7 +34,11 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public ResponseEntity handle1( MethodArgumentNotValidException e){
        String key = e.getBindingResult().getAllErrors().get(0).getDefaultMessage();
-       return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(messageutil.getLocaleMessage(key,null,null));
+        try {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(messageutil.getLocaleMessage(key,null,null));
+        } finally {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(key);
+        }
     }
 
     @ExceptionHandler(ConstraintViolationException.class)

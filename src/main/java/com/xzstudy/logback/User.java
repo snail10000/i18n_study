@@ -19,6 +19,6 @@ public class User {
     private String addr;
 
     @Email
-    @NotBlank
+    @NotBlank(message = "email")
     private String email;
 }
